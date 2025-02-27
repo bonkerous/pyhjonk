@@ -8,7 +8,7 @@ suite of cli python apps to interact with [hjonk.me](https://hjonk.me)
 
 Install dependencies
 ```
-pip install requests bs4
+pip install requests bs4 html5lib
 ```
 
 Run the thin
