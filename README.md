@@ -16,4 +16,10 @@ Run the thin
 python3 user.py
 ```
 
-Enjoy garbage
+Edit user.py to have handle and password for login
+
+```
+payload = {'handle': "YOURHANDLE", 'password': "YOURPASSWORD"}
+                        ^^^^^^^                  ^^^^^^^^^^
+```
+(this will be better by using a config file soon...)
