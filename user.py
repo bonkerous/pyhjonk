@@ -1,19 +1,25 @@
 import requests
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+import os
 
-base_url = "https://hjonk.me"
+load_dotenv()
+
+url = "https://hjonk.me"
 session = requests.Session()
+payload = {'handle': os.getenv('HANDLE'), 'password': os.getenv('PASSWORD')}
 
-payload = {'handle': "YOURHANDLE", 'password': "YOURPASSWORD"}
-
-session.post(f"{base_url}/auth/login", data=payload)
-
-print(session)
+login = session.post(f"{url}/auth/login", data=payload)
+if login.status_code == 200:
+    print("Successfully logged in!")
+    pass
+else:
+    print("Are you sure your credentials are correct?")
 
 username = input("Enter the username of the user you want the posts from: ")
-print("You chose to view posts from", username)
+print(f"You chose to view posts from {username}")
 
-response = session.get(f"{base_url}/profile/feed?user={username}")
+response = session.get(f"{url}/profile/feed?user={username}")
 
 # Stuff to parse HTML
 soup = BeautifulSoup(response.content, 'html5lib')
