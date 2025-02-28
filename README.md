@@ -4,22 +4,22 @@ suite of cli python apps to interact with [hjonk.me](https://hjonk.me)
 
 **WARNING: THIS IS VERY VERY SHIT SOFTWARE NOT READY FOR REAL WORLD USE LOLOLOL**
 
-## how to use
+## Installation & Usage
 
-Install dependencies
+Install dependencies:
 ```
-pip install requests bs4 html5lib
+pip install -r requirements.txt
 ```
 
-Run the thin
+Run program"
 ```
 python3 user.py
 ```
 
-Edit user.py to have handle and password for login
+Edit .env to have handle and password for login. See `.env.example`.
 
 ```
-payload = {'handle': "YOURHANDLE", 'password': "YOURPASSWORD"}
-                        ^^^^^^^                  ^^^^^^^^^^
+HANDLE=HANDLE
+PASSWORD=PASSWORD
 ```
-(this will be better by using a config file soon...)
+*use that big beautiful brain of yours*
