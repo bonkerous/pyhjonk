@@ -1,7 +1,7 @@
 import requests
-from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 import os
+import json
 
 load_dotenv()
 
@@ -19,12 +19,7 @@ else:
 username = input("Enter the username of the user you want the posts from: ")
 print(f"You chose to view posts from {username}")
 
-response = session.get(f"{url}/profile/feed?user={username}")
+posts = session.get(f"{url}/api/v1.0/posts/{username}")
 
-# Stuff to parse HTML
-soup = BeautifulSoup(response.content, 'html5lib')
-
-posts_text_raw = soup.find_all("div", class_="text")
-
-for posts_text in posts_text_raw:
-    print(posts_text.text)
+for item in posts.json():
+    print(f"{item['body']} (posted at {item['created_at']})")
