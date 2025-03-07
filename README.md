@@ -11,12 +11,12 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Run program"
+Run program:
 ```
 python3 user.py
 ```
 
-Edit .env to have handle and password for login. See `.env.example`.
+Edit .env to use your handle and password for login. See `.env.example`.
 
 ```
 HANDLE=HANDLE
