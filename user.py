@@ -1,4 +1,3 @@
-import sys
 import requests
 from dotenv import load_dotenv
 import os
@@ -19,7 +18,7 @@ cmdargs=cmdparser.parse_args()
 
 url = "https://hjonk.me"
 
-posts = session.get(f"{url}/api/v1.0/posts/{cmdargs.username}?lim={cmdargs.rows}&page={cmdargs.page}")
+posts = requests.get(f"{url}/api/v1.0/posts/{cmdargs.username}?lim={cmdargs.rows}&page={cmdargs.page}")
 
 for item in posts.json():
     print(f"{item['body']} (posted at {item['created_at']})")
