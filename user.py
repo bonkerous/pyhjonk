@@ -1,5 +1,4 @@
 import sys
-
 import requests
 from dotenv import load_dotenv
 import os
@@ -19,15 +18,6 @@ cmdparser.add_argument("-r", "--rows", type=int, default=10, help="Selects amoun
 cmdargs=cmdparser.parse_args()
 
 url = "https://hjonk.me"
-session = requests.Session()
-payload = {'handle': os.getenv('HANDLE'), 'password': os.getenv('PASSWORD')}
-
-login = session.post(f"{url}/auth/login", data=payload)
-if login.status_code == 200:
-    print("Successfully logged in!")
-    pass
-else:
-    print("Are you sure your credentials are correct?")
 
 posts = session.get(f"{url}/api/v1.0/posts/{cmdargs.username}?lim={cmdargs.rows}&page={cmdargs.page}")
 
