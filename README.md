@@ -15,11 +15,4 @@ Run program:
 ```
 python3 user.py
 ```
-
-Edit .env to use your handle and password for login. See `.env.example`.
-
-```
-HANDLE=HANDLE
-PASSWORD=PASSWORD
-```
 *use that big beautiful brain of yours*
