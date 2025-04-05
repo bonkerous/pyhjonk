@@ -22,7 +22,9 @@ posts = requests.get(f"{url}/api/v1.0/posts/{cmdargs.username}?lim={cmdargs.rows
 
 for item in posts.json():
     if item['replying_to'] is not None:
-        print(f"Replying to {item['replying_to']}")
+        print(f"\033[95mPosted at {item['created_at']}, Replying to {item['replying_to']}\033[0m")
+    else:
+        print(f"\033[95mPosted at {item['created_at']}\033[0m")
 
-    print(f"{item['body']} (posted at {item['created_at']})")
+    print(f"{item['body']}")
     print("")
