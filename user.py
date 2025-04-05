@@ -8,7 +8,7 @@ load_dotenv()
 
 cmdparser = argparse.ArgumentParser(
     description="pyhjonk user.py - View posts from a user.",
-    epilog="usage: py [-h] [args] username"
+    epilog="usage: py user.py [-h] [args] username"
 )
 
 cmdparser.add_argument("username", type=str, default=1, help="Selects username")
@@ -21,4 +21,8 @@ url = "https://hjonk.me"
 posts = requests.get(f"{url}/api/v1.0/posts/{cmdargs.username}?lim={cmdargs.rows}&page={cmdargs.page}")
 
 for item in posts.json():
+    if item['replying_to'] is not None:
+        print(f"Replying to {item['replying_to']}")
+
     print(f"{item['body']} (posted at {item['created_at']})")
+    print("")
