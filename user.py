@@ -1,7 +1,5 @@
 import requests
 from dotenv import load_dotenv
-import os
-import json
 import argparse
 
 load_dotenv()
@@ -27,4 +25,11 @@ for item in posts.json():
         print(f"\033[95mPosted at {item['created_at']}\033[0m")
 
     print(f"{item['body']}")
+    mediaCounter = -1
+    if item['media'] is not None:
+        for media in item['media']:
+            mediaCounter += 1
+            print(f"{media['type'].capitalize()}: {url}/cdn/attachment/{item['id']}/{mediaCounter}")
+    if item['associated_post'] is not None:
+        print(f"Associated post: {url}/@ignorethis/{item['associated_post']}")
     print("")
