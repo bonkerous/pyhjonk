@@ -1,8 +1,6 @@
 import requests
-from dotenv import load_dotenv
 import argparse
 
-load_dotenv()
 
 cmdparser = argparse.ArgumentParser(
     description="pyhjonk user.py - View posts from a user.",
