@@ -1,7 +1,6 @@
 import requests
 import argparse
 
-
 cmdparser = argparse.ArgumentParser(
     description="pyhjonk user.py - View posts from a user.",
     epilog="usage: py user.py [-h] [args] username"
